@@ -1,1 +1,2 @@
-alert('Hola Usuario desde el archivo js!');
+const nombreUsuario = prompt('Ingrese su nombre');
+alert(`Hola ${nombreUsuario}, bienvenido!`);
