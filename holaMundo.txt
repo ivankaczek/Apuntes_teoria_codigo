@@ -1,3 +1,0 @@
-Hola Mr Mundo, esta es la primera linea de prueba
-Recordar que en VSCode con CTRL+espacio
-podes crear el HTML Sample

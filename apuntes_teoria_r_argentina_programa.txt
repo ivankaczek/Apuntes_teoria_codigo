@@ -1,0 +1,156 @@
+Hola Mr Mundo, esta es la primera linea de prueba
+Recordar que en VSCode con CTRL+espacio
+podes crear el HTML Sample
+
+
+Apuntes Clase #5 r/Argentina-programa
+
+Clase 5, parte 3
+
+HTML es el esqueleto de la pagina, CSS el maquillaje, JavaScript la lógica
+Html y CSS si bien son lenguajes demarcados, no se puede escribir una
+logica relevante ahi.
+
+Los tags
+-------
+
+Html se maneja con 'tags', tambien llamados 'elementos' o 'nodos'
+Normalmente abro y cierro así <tag> texto </tag>
+Hay tags que se autocierran como <img texto />
+siempre que arranco el archivo html englobo con el tag <html>.
+Los tags pueden tener atributos
+<elemento atributo="valor" otroAtributo="valor"> texto </elemento>
+
+Tag: input
+----------
+
+Son los botones. 
+placeholder: lo que se muestra por defecto. Ej "ingresa tu nombre"
+Cuando ponemos en un boton type="text" significas que lo que puedo
+ingresar es un texto. También podría poner 'number' queriendo decir
+que sólo puedo ingresar numeros y así. ej la pagina del banco Cuando
+dice 'ingresa tu dni' no te deja escribir texto. Por ejemplo aca tenes
+unas flechitas en el boton para aumentar y bajar los numeros.
+
+SEO - Search Engine Optimization
+--------------------------------
+
+Averiguar sobre esto
+
+<head> y <body>
+---------------
+
+Todo lo que está en el <head> se va a cargar antes que lo que esta en el 
+<body>
+Primero se cargan los estilos (el CSS), después el contenido de la 
+pagina y por ultimo el JavaScript
+
+Pregunta de entrevista: 
+Mientras el navegador carga JavaScript entonces para de cargar los
+demás elementos. La razon de eso es que uno puede llegar a cambiar el 
+estilo de las cosas con el JavaScript. Por eso se para todo. 
+
+Lo que está en el head nunca se muestra visualmente. Es la parte de 
+'metadatos'. La palabra 'metadatos' significaría informacion acerca de 
+los datos.
+
+A partir de lo que hay en el body es lo que se comienza a mostrar
+en la web. 
+
+Como funciona CSS
+-----------------
+
+CSS describe como se ven los elementos de html. Está compuesto por 
+bloques de declaración. Y cada bloeque de declaracion esta compuesto po
+un selector y un conjunto de reglas de estilo. En español diríamos, 'este 
+selector va a tener las siguientes reglas: ...'
+
+[selector] {
+    nombre-de-estilo: valor;
+    nombre-de-estilo: valor;
+    nombre-de-estilo: valor;
+    etc...
+}
+
+Ejemplo: 'todos los elementos van a tener background
+red'
+
+*{
+    background: red;
+}
+
+La idea del nombre 'cascading style sheets' es que las cosas se aplican en 
+cascada. O sea, puedo decir 'todo el html es de color rojo' pero puedo decir
+después 'el body es de color azul' y esta última info 'pisa' a la info 
+anterior. Lo más especifico va pisando a lo más general. Si el 'footer' es
+más específico que el body, voy a ver los estilos del footer sobreeescribiendo
+lo que suceda para el body.
+
+Vamos a utilizar 3 tipos básicos de selecctores. Una es simplemente poner
+el nombre del tag. Ejemplo:
+
+1. Utilizando el nombre del tag
+
+h2 {
+    font-size: 35px;
+}
+
+2. Utilizando el atributo 'class' dentro del tag. Ejemplo:
+
+En el html, dentro de la etiqueta h2 por ejemplo le expecifico que es de
+class subítulo. <h2 class="subtitulo"> etc </h2>
+Luego me voy a mi archivo css y le explico que algo es una clase porque
+le pongo un punto adelante. 
+.subtitulo{
+    
+}
+
+En el caso que yo este mezclando cosas, porque puse que el color de 
+texto en h1 es tal y defini tambien que la class tal tiene otro color
+siempre va a ganar la opcion más específica, ejemplo la de class.
+
+3. Utilizando un id dentro de la etiqueta. Los id se referencian Luego
+con un numeral.
+
+Cuando pasamos el mouse arriba de nuestras declaraciones en la pagina CSS 
+vamos a ver que aclara un  
+    Selector Specificity(0,0,1) para los tags solos
+    Selector Specificity(0,1,0) para los class
+    Selector Specificity(1,0,0) para los que tienen id
+
+La idea igual aquí no es ser expertos en html y css sino entender como
+interactua JavaScript con ellos
+
+Que es el DOM
+-------------
+
+El Document Object Model es la representacion que hace JS del documento html y lo bueno es
+que podemos "agarrar" elementos del documento y modificarlos. Si yo pongo en js 
+
+const nuestroTwitter = document.querySelector('.twitter');
+
+me va a devolver el primer elemento del documento html que tenga clase .twitter
+
+Usando el querySelector
+-----------------------
+
+Si quiero un elemento de tipo h1 pido: querySelector('h1');
+Si quiero un elemento de class 'subtitulo' pido querySelector('.subtitulo');
+Si quiero un elemento de id="respuesta" pido querySelector('#respuesta');
+
+Yo puedo agarrar un elemento con el querySelector y sobreescribir algún estilo, o cambiar su texto.
+Pero eso no sobreescribe el html que es estático, solo lo modifica en tiempo de ejecucion
+
+Tener en cuenta que cuando utilizas id, no deberías tener en la misma página diferentes elementos con el mismo
+id. (Atención!!!)
+
+Los formularios no necesariamente se envían en php. Se pueden parsear también a JavaScript.
+
+Formularios
+-----------
+
+Como el formulario es algo 'anidado' o bien como una 'rama' del body, y esta a su vez del html, cuando
+hacemos un 'submit' se resetea toda la pagina. Por eso es clave cancelar el evento onclick con un 
+return false por ahora, 
+
+Básicamente lo que está sucediendo es que 
